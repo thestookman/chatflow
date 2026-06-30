@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatflow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <span class="logo-icon">✦</span>
+            <span class="logo-text">Chatflow</span>
+          </div>
+          <button class="btn-icon sidebar-close" id="sidebarClose" aria-label="Close sidebar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <button class="btn-new-chat" id="newChatBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          New chat
+        </button>
+
+        <div class="chat-list" id="chatList"></div>
+
+        <div class="sidebar-footer">
+          <div class="status-dot" id="statusDot"></div>
+          <span id="statusText">Checking connection…</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <button class="btn-icon" id="sidebarToggle" aria-label="Open sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12h18M3 6h18M3 18h18"/>
+            </svg>
+          </button>
+          <h1 class="chat-title" id="chatTitle">New conversation</h1>
+          <button class="btn-icon btn-danger-ghost" id="deleteChatBtn" aria-label="Delete chat" title="Delete chat">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6h14"/>
+            </svg>
+          </button>
+        </header>
+
+        <div class="messages-wrap">
+          <div class="messages" id="messages">
+            <div class="welcome" id="welcome">
+              <div class="welcome-glow"></div>
+              <h2>What can I help you with?</h2>
+              <p>Powered by Cerebras · Your chats are saved locally</p>
+              <div class="suggestions">
+                <button class="suggestion" data-prompt="Explain quantum computing in simple terms">Explain quantum computing</button>
+                <button class="suggestion" data-prompt="Write a Python function to merge two sorted lists">Write a merge function</button>
+                <button class="suggestion" data-prompt="Give me 5 creative startup ideas for 2026">Startup ideas for 2026</button>
+                <button class="suggestion" data-prompt="Help me plan a week-long trip to Japan">Plan a Japan trip</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="composer-wrap">
+          <form class="composer" id="composerForm">
+            <textarea
+              id="messageInput"
+              rows="1"
+              placeholder="Message Chatflow…"
+              autocomplete="off"
+            ></textarea>
+            <button type="submit" class="btn-send" id="sendBtn" aria-label="Send message" disabled>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 19V5M5 12l7-7 7 7"/>
+              </svg>
+            </button>
+          </form>
+          <p class="composer-hint">Chatflow can make mistakes. Verify important information.</p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
